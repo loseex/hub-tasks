@@ -37,4 +37,12 @@ export class DbService {
       throw new Error(err);
     }
   }
+
+  async update() {
+    try {
+      return;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }

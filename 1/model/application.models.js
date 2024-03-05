@@ -7,7 +7,7 @@ export class ApplicationModel {
 }
 
 export class ApplicationPostResponseModel {
-  applicationId = uuidv7();
+  applicationId = "";
 }
 
 export class ApplicationsResponseModel {
