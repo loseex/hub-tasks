@@ -29,7 +29,6 @@ export class ApplicationDeleteResponseModel {
 export class ApplicationErrorMessageModel {
   constructor(message) {
     this.message = message;
-
     return this;
   }
 }
