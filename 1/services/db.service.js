@@ -6,5 +6,35 @@
  */
 
 export class DbService {
+  async save(object) {
+    try {
+      return;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 
+  async findAll() {
+    try {
+      return;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async findByUUID(uuid) {
+    try {
+      return;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async delete(uuid) {
+    try {
+      return;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }

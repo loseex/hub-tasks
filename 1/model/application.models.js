@@ -1,11 +1,13 @@
+import { uuidv7 } from "uuidv7";
+
 export class ApplicationModel {
-  applicationName = null; /** @string */
-  createDate = null; /** @Date */
-  applicationId = null; /** @uuidv7 */
+  applicationName = ""; /** @string */
+  createDate = ""; /** @Date */
+  applicationId = ""; /** @uuidv7 */
 }
 
 export class ApplicationPostResponseModel {
-  applicationId = null; /** @uuidv7 */
+  applicationId = uuidv7();
 }
 
 export class ApplicationsResponseModel {
@@ -22,4 +24,12 @@ export class ApplicationPutModel {
 
 export class ApplicationDeleteResponseModel {
   success = null; /** @boolean */
+}
+
+export class ApplicationErrorMessageModel {
+  constructor(message) {
+    this.message = message;
+
+    return this;
+  }
 }
