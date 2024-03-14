@@ -1,4 +1,5 @@
 import {
+  ApplicationDeleteResponseModel,
   ApplicationPostResponseModel,
   ApplicationResponseModel,
   ApplicationsResponseModel,
@@ -62,6 +63,10 @@ export class ApplicationController {
 
     this.router.put("/app/:uuid", async (req, res) => {
       try {
+        if ("applicationName" in req.body == false) {
+          res.status(400).send("Conflict body");
+        }
+
         const uuid = req.params.uuid;
         const current = await this.service.updateApp(uuid, req.body);
 
@@ -77,8 +82,12 @@ export class ApplicationController {
     this.router.delete("/app/:uuid", async (req, res) => {
       try {
         const uuid = req.params.uuid;
-        await this.service.deleteApp(uuid);
-        res.status(200).send();
+        const isSuccess = await this.service.deleteApp(uuid);
+
+        const response = new ApplicationDeleteResponseModel();
+        response.success = isSuccess;
+
+        res.status(200).send(response);
       } catch (err) {
         res.status(500).send("Internal server error");
       }

@@ -43,9 +43,9 @@ export class DbService {
     try {
       const data = await this.get();
 
-      const current = data.filter((i) => i.applicationId == uuid);
+      const index = data.map((i) => i.applicationId).indexOf(uuid);
 
-      return current[0];
+      return data[index];
     } catch (err) {
       throw new Error(err);
     }
@@ -68,6 +68,7 @@ export class DbService {
     try {
       const current = await this.get();
       this.save(current.filter((i) => i.applicationId !== uuid));
+      return true;
     } catch (err) {
       throw new Error(err);
     }
@@ -77,10 +78,13 @@ export class DbService {
     try {
       let data = await this.get();
 
-      const index = data.findIndex((item) => item.applicationId === uuid);
-      data.splice(index, 1, { ...body });
+      const index = data.map((i) => i.applicationId).indexOf(uuid);
+
+      data[index].applicationName = body.applicationName;
 
       await this.save(data);
+
+      return data[index];
     } catch (err) {
       throw new Error(err);
     }

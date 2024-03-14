@@ -30,7 +30,9 @@ export class ApplicationService {
 
     current.applicationId = uuidv7();
     current.applicationName = object.applicationName;
-    current.createDate = new Date().getUTCDate();
+    current.createDate = new Intl.DateTimeFormat("ru-RU").format(
+      new Date(Date.now())
+    );
 
     return this.dbService.create(current);
   }
