@@ -1,7 +1,17 @@
 [
   {
-    "applicationName": "Discord Nitro",
+    "applicationName": "Discord",
     "createDate": "14.03.2024",
     "applicationId": "018e3bc8-6b77-7afd-b9a5-d9548531d068"
+  },
+  {
+    "applicationName": "Telegram Premium",
+    "createDate": "26.03.2024",
+    "applicationId": "018e7944-28a2-78e5-b2d2-6242fcad48c4"
+  },
+  {
+    "applicationName": "VS Code Premium",
+    "createDate": "26.03.2024",
+    "applicationId": "018e7945-ce03-7e8e-8cfd-de2080aa6545"
   }
 ]

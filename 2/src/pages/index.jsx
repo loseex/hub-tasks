@@ -1,19 +1,14 @@
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 
-const MainView = lazy(
-  () => import('./main/main.view.jsx')
-);
-
-const SecondView = lazy(
-  () => import('./second/second.view.jsx')
-);
+const AppsListView = lazy(() => import("./apps-list/apps-list.view"));
+const AppPageView = lazy(() => import("./app-page/app-page.view"));
 
 export const Routing = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainView />} />
-      <Route path="/second" element={<SecondView />} />
+      <Route path="/" element={<AppsListView />} />
+      <Route path="/:uuid" element={<AppPageView />} />
     </Routes>
   );
 };
